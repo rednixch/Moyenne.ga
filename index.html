@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Moyenne.GA - Calcule et suis ta moyenne</title>
+<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width">
+</head>
+<body>
+  <!-- The Modal
+  <div id="myModal" class="modal">
+
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>C'est le nombre total de cases que vous avez rempli en haut. Exemple: vous n'avez que mit la note de francais et de math, donc vous notez 2. si vous avez mit 3 notes, vous notez 3. t'as capté (J'aurais pu coder ca moi meme mais c'est trop dur)</p>
+    </div>
+
+  </div>
+-->
+<div>
+  <img src="https://www.ecoledirecte.com/assets/images/logoEcoleDirecte.png" alt="">
+  <h2>Moyenne.GA</h2>
+  <h5>Ajoutez cette page à vos favoris,<br>elle peut vous être très utile!</h5>
+<input placeholder="Francais"type="text" id="fr" /><br>
+<input placeholder="Mathematiques" type="text" id="mathematique" /><br>
+<input placeholder="Anglais" type="text" id="anglais" /><br>
+<input placeholder="Histoire-Geographie" type="text" id="histo" /><br>
+<input placeholder="Physique-Chimie" type="text" id="chimie" /><br>
+<input placeholder="Svt" type="text" id="svt" /><br>
+<input placeholder="Technologie" type="text" id="techno" /><br>
+<input placeholder="Arts plastiques" type="text" id="arts" /><br>
+<input placeholder="Musique" type="text" id="music" /><br>
+<input placeholder="Sport" type="text" id="sport" /><br>
+<input placeholder="Allemand" type="text" id="duch" /><br>
+<input placeholder="Latin " type="text" id="latin" /><br>
+<input placeholder="Espagnol " type="text" id="espa" /><br>
+<!-- <h5><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-info-circle" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <circle cx="12" cy="12" r="9"></circle>
+   <line x1="12" y1="8" x2="12.01" y2="8"></line>
+   <polyline points="11 12 12 12 12 16 13 16"></polyline>
+</svg>Plus besoin de la case nombre de notes!</h5>-->
+<!-- <h4>Nombre de cases remplies <a onclick="lol()" id="jsp">?</a></h4>
+<input placeholder="En chiffres (1,2,4...)" type="number" id="tout" /> <br><br>--><br>
+<!-- pub --> <!-- <iframe src="https://moyennepub.netlify.app" width="304" height="104" style="border: none;"></iframe><br><br><br> -->
+<a id="trucmuch" onClick="multiplyBy()" title="Calculer la moyenne">Calculer</a><br><br><br>
+<!-- <p class="big"><b>Moyenne:<br></p>-->
+<span id="minus" class=""></span><p id = "resultnone">Cliquez sur "calculer"</p>
+<div class="historique" id="historique">
+<span class="beta" style="margin-right: 5px; margin-top: 10px;">beta</span>
+<h2 class="titlehisto">Historique <a id="supphisto" onclick="localStorage.clear(); getHistory()">[supprimer]</a></h2>
+<div id="noteslist" style="margin-top: 17px;">
+</div>
+</div>
+<br><br>
+<!-- <h3>By <a id="ah" class="effect-shine">RedWax</a></h3> -->
+</div>
+
+<script>
+console.log(`Console - DirectM`)
+console.log(`pret à de nouveaux calculs.`)
+/*// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("jsp");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+*/
+</script>
+
+<script>
+  function multiplyBy()
+  {
+          let tout = 0
+          console.info(`Actuellement tout est à ${tout}. (avant la recuperation)`)
+
+          num1 = document.getElementById("fr").value;
+            if (num1 !== "") { tout = tout + 1; }
+            new1=num1.replace(",", ".");
+          num2 = document.getElementById("mathematique").value;
+            if (num2 !== "") { tout = tout + 1; }
+            new2=num2.replace(",", ".");
+          num3 = document.getElementById("anglais").value;
+            if (num3 !== "") { tout = tout + 1; }
+            new3=num3.replace(",", ".");
+          num4 = document.getElementById("histo").value;
+            if (num4 !== "") { tout = tout + 1; }
+            new4=num4.replace(",", ".");
+          num5 = document.getElementById("chimie").value;
+            if (num5 !== "") { tout = tout + 1; }
+            new5=num5.replace(",", ".");
+          num6 = document.getElementById("svt").value;
+            if (num6 !== "") { tout = tout + 1; }
+            new6=num6.replace(",", ".");
+          num7 = document.getElementById("techno").value;
+            if (num7 !== "") { tout = tout + 1; }
+            new7=num7.replace(",", ".");
+          num8 = document.getElementById("arts").value;
+            if (num8 !== "") { tout = tout + 1; }
+            new8=num8.replace(",", ".");
+          num9 = document.getElementById("music").value;
+            if (num9 !== "") { tout = tout + 1; }
+            new9=num9.replace(",", ".");
+          num10 = document.getElementById("sport").value;
+            if (num10 !== "") { tout = tout + 1; }
+            new10=num10.replace(",", ".");
+          num11 = document.getElementById("duch").value;
+            if (num11 !== "") { tout = tout + 1; }
+            new11=num11.replace(",", ".");
+          num12 = document.getElementById("latin").value;
+            if (num12 !== "") { tout = tout + 1; }
+            new12=num12.replace(",", ".");
+          num13 = document.getElementById("espa").value;
+            if (num13 !== "") { tout = tout + 1; }
+            new13=num13.replace(",", ".");
+
+            let toutcsnl = 13 - tout
+
+            console.info(`${tout} cases sont remplies, face à ${toutcsnl} de cases non remplies. (apres la recuperation)`)
+      //    tout = document.getElementById("tout").value;
+
+/*
+          if(tout === ""){
+            alert("Tu dois donner le nombre de cases que tu as rempli.")
+          }
+          */
+          //else{
+          let addition = +new1 + +new2 + +new3 + +new4 + +new5 + +new6 + +new7 + +new8 + +new9 + +new10 + +new11 + +new12 + +new13;
+          if(isNaN(addition)){
+            console.error(`[Erreur] L'addition est mal faite, elle a comme retour ${addition}. Impossible de continuer à la division.`)
+            alert("Erreur inconnue, soit vous avez mis du texte au lieu de nombres, soit, je sais pas. (erreur: ADDITION_NAN)")
+          }
+          else{
+
+          //TOUT
+          console.info(`Voici la division qui va etre faite: ${addition} par ${tout}.`)
+          let division = addition / tout;
+
+          if(division > 20){
+            console.error(`[Erreur] La division a commme retour ${division}, ce qui est superieur à 20. Petit message d'alerte.`)
+            alert("Oula tu tapes n'importe quoi (erreur: DIVISION_SUPERIEURE_20)");
+          }
+          else{
+            if(isNaN(division)){
+              console.error(`[Erreur] La division est mal faite, elle a comme retour ${division}.`)
+              alert("Aucune case n'est remplie! (erreur: DIVISION_NAN)")
+            }
+            else{
+          if(document.getElementById("resultnone")){
+             document.getElementById("resultnone").id = "result";
+          }
+
+          var resultat = Math.round(100*division)/100;
+
+          document.getElementById("result").innerHTML = resultat;
+          console.log(`[RESULTAT] moyenne: ${resultat} ou ${division}`)
+
+          //SYSTEME DE - <NOMBRE> ET DE  + <NOMBRE>
+          var pourriture = document.getElementById("minus")
+          var elementpourriture = document.getElementById('noteslist').children[0];
+
+          if (typeof(elementpourriture) != 'undefined' && elementpourriture != null)
+          {
+            var elementpourritureLeRetour = document.getElementById('noteslist').children[0].innerHTML;
+            if(resultat >= elementpourritureLeRetour){
+              var difference = resultat - elementpourritureLeRetour
+              var diffresultat = Math.round(100*difference)/100;
+              pourriture.innerHTML = `+ ${diffresultat}`
+              pourriture.setAttribute("class", "ggmec");
+            }
+            else if(resultat <= elementpourritureLeRetour){
+              var differenceLeRetour = elementpourritureLeRetour - resultat
+              var diffresultatLeRetour = Math.round(100*differenceLeRetour)/100;
+              pourriture.innerHTML = `- ${diffresultatLeRetour}`
+              pourriture.setAttribute("class", "laDecadance");
+            }
+            else if(resultat = elementpourritureLeRetour){
+              pourriture.innerHTML = `+ 0`
+              button.setAttribute("class", "");
+            }
+          }
+
+          //SYSTEME SAVEHISTORIQUE()
+          var notesancien = localStorage.getItem('notes');
+          if(notesancien === null){
+            localStorage.setItem('notes', resultat);
+          }
+          else{
+            localStorage.setItem('notes', `${resultat} - ${notesancien}`);
+          }
+          refreshHistory()
+        }
+        }
+        }
+
+//  }
+}
+
+</script>
+
+<script>
+  function getHistory(){
+    const notes = localStorage.getItem("notes")
+    /*
+    if(document.getElementById('noteshisto')){
+      document.getElementById('noteshisto').remove()
+    }
+    */
+    if (notes === null) {
+      document.getElementById('noteslist').innerHTML = "";
+      const noteshistory = document.createElement("p");
+      noteshistory.innerHTML = "Aucune note";
+      noteshistory.id = "noteshistoattention";
+      document.getElementById("historique").appendChild(noteshistory);
+    }
+    else{
+      if(document.getElementById('noteshistoattention')){
+        document.getElementById('noteshistoattention').remove()
+      }
+    var noteslength = notes.split(" - ").length; //PREND COMBIEN YA DE NOTES
+    for (let i = 0; i < noteslength; i++) {
+      const notesall = notes.split(" - ")
+      const notela = notesall[i]
+      const noteshistory = document.createElement("p");
+      noteshistory.innerHTML = notela;
+      noteshistory.id = "noteshisto";
+      document.getElementById("noteslist").appendChild(noteshistory);
+      console.log(`VALEUR: ${i}`)
+    }
+
+    console.log(noteslength)
+    /*
+    const noteshistory = document.createElement("p");
+    noteshistory.innerHTML = notes;
+    noteshistory.id = "noteshisto";
+    document.getElementById("historique").appendChild(noteshistory);
+    */
+  }
+  }
+function refreshHistory(){
+  if(document.getElementById('noteshistoattention')){
+    document.getElementById('noteshistoattention').remove()
+    const notes = localStorage.getItem("notes")
+    const noteshistory = document.createElement("p");
+    noteshistory.innerHTML = notes;
+    noteshistory.id = "noteshisto";
+    document.getElementById("noteslist").prepend(noteshistory);
+  }
+  else{
+  const notes = localStorage.getItem("notes")
+  const notesall = notes.split(" - ")
+  const notela = notesall[0]
+
+  const noteshistory = document.createElement("p");
+  noteshistory.innerHTML = notela;
+  noteshistory.id = "noteshisto";
+  document.getElementById("noteslist").prepend(noteshistory);
+}
+}
+window.onload = getHistory();
+</script>
+<style>
+
+</style>
+</body>
+</html>
